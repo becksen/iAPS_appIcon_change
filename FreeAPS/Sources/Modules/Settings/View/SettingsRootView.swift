@@ -40,6 +40,7 @@ extension Settings {
                     Text("Carb Ratios").navigationLink(to: .crEditor, from: self)
                     Text("Target Ranges").navigationLink(to: .targetsEditor, from: self)
                     Text("Autotune").navigationLink(to: .autotuneConfig, from: self)
+                    Text("AppIcon").navigationLink(to: .appIconConfig, from: self) // becksen
                 }
 
                 Section(header: Text("Developer")) {
