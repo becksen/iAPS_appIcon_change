@@ -192,6 +192,7 @@ extension AppIconConfig {
                                 icon: { Image(uiImage: UIImage(named: self.iconSettings.namesOfIcon[i] ?? "AppIcon") ?? UIImage())
                                     .resizable()
                                     .scaledToFit()
+                                    .cornerRadius(10) // soften the edges of square image format
                                     // .border(.red)
 
                                     // .frame(width: 80, height: 80, alignment: .topLeading)
