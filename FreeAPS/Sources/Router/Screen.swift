@@ -26,6 +26,7 @@ enum Screen: Identifiable, Hashable {
     case calibrations
     case notificationsConfig
     case fpuConfig
+    case overrideProfilesConfig
     case snooze
     case appIconConfig // becksen
 
@@ -86,6 +87,8 @@ extension Screen {
             NotificationsConfig.RootView(resolver: resolver)
         case .fpuConfig:
             FPUConfig.RootView(resolver: resolver)
+        case .overrideProfilesConfig:
+            OverrideProfilesConfig.RootView(resolver: resolver)
         case .snooze:
             Snooze.RootView(resolver: resolver)
         case .appIconConfig: // becksen

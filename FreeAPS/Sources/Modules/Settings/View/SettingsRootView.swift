@@ -12,8 +12,8 @@ extension Settings {
             Form {
                 Section(
                     header: Text(
-                        "FreeAPS X v\(state.versionNumber) - \(state.buildNumber) \nBranch: \(state.branch) \(state.copyrightNotice) "
-                    )
+                        "iAPS v\(state.versionNumber) - \(state.buildNumber) \nBranch: \(state.branch) \(state.copyrightNotice) "
+                    ).textCase(nil)
                 ) {
                     Toggle("Closed loop", isOn: $state.closedLoop)
                 }
@@ -30,6 +30,7 @@ extension Settings {
                     }
                     Text("Notifications").navigationLink(to: .notificationsConfig, from: self)
                     Text("Fat And Protein Conversion").navigationLink(to: .fpuConfig, from: self)
+                    Text("Profile Override").navigationLink(to: .overrideProfilesConfig, from: self)
                 }
 
                 Section(header: Text("Configuration")) {
