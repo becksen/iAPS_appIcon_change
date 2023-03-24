@@ -92,7 +92,7 @@ extension Screen {
         case .snooze:
             Snooze.RootView(resolver: resolver)
         case .appIconConfig: // becksen
-            AppIconConfig.AppIconView3()
+            AppIconConfig.AppIconViewIAPS()
         }
     }
 

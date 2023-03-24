@@ -172,46 +172,100 @@ extension AppIconConfig {
         @Environment(\.colorScheme) var colorScheme
         @StateObject var iconSettings = NamesOfIcon()
         var body: some View {
-            Section(
-                header: Text(
-                    "This feature allows to change the AppIcon on FAX that you see on the Home Screen.\n\nIt dynamically fetches all AppIcons that are available in FreeAPS->Resources->Assets.xcassets\nYou can add your own icon easilly with right-click. Select iOS->New iOS App Icon. Add one .png image with size 1024x1024. Done"
-                ).font(.caption)
-                    .foregroundColor(Color.secondary),
-                content: {
-                    ForEach(0 ..< $iconSettings.namesOfIcon.count) { i in
-                        Button(action: {
-                            if self.iconSettings.namesOfIcon[i] == "AppIcon" {
-                                UIApplication.shared.setAlternateIconName(nil)
-                            } else {
-                                UIApplication.shared.setAlternateIconName(self.iconSettings.namesOfIcon[i])
-                            }
-
-                        })
-                            {
-                                Label { Text(self.iconSettings.namesOfIcon[i] ?? "AppIcon") }
-                                icon: { Image(uiImage: UIImage(named: self.iconSettings.namesOfIcon[i] ?? "AppIcon") ?? UIImage())
-                                    .resizable()
-                                    .scaledToFit()
-                                    .cornerRadius(10) // soften the edges of square image format
-                                    // .border(.red)
-
-                                    // .frame(width: 80, height: 80, alignment: .topLeading)
+            ScrollView(.vertical) {
+                Section(
+                    /* header: Text(
+                         "This feature allows to change the AppIcon on FAX that you see on the Home Screen.\n\nIt dynamically fetches all AppIcons that are available in FreeAPS->Resources->Assets.xcassets\nYou can add your own icon easilly with right-click. Select iOS->New iOS App Icon. Add one .png image with size 1024x1024. Done"
+                     ).font(.caption)
+                         .foregroundColor(Color.secondary), */
+                    content: {
+                        ForEach(0 ..< $iconSettings.namesOfIcon.count) { i in
+                            Button(action: {
+                                if self.iconSettings.namesOfIcon[i] == "AppIcon" {
+                                    UIApplication.shared.setAlternateIconName(nil)
+                                } else {
+                                    UIApplication.shared.setAlternateIconName(self.iconSettings.namesOfIcon[i])
                                 }
-                            }
-                    }.frame(width: 200, height: 45, alignment: .topLeading)
-                    // .border(.green)
-                }
-            )
-            .navigationTitle("Change App Icon")
-            .foregroundColor(colorScheme == .dark ? .white : .black)
 
-            .frame(alignment: .topLeading)
-            // .padding(.top, -50)
-            // .border(.yellow)
+                            })
+                                {
+                                    Label { Text(self.iconSettings.namesOfIcon[i] ?? "AppIcon") }
+                                    icon: {
+                                        Image(uiImage: UIImage(named: self.iconSettings.namesOfIcon[i] ?? "AppIcon") ?? UIImage())
+                                            .resizable()
+                                            .scaledToFit()
+                                            .cornerRadius(10) // soften the edges of square image format
+                                        // .border(.red)
 
-            // .scaledToFit()
+                                        // .frame(width: 80, height: 80, alignment: .topLeading)
+                                    }
+                                }
+                        }.frame(width: 200, height: 45, alignment: .topLeading)
+                        // .border(.green)
+                    }
+                )
+                .navigationTitle("Change App Icon")
+                .foregroundColor(colorScheme == .dark ? .white : .black)
 
-            // .frame(alignment: .leading)
+                .frame(alignment: .topLeading)
+                // .padding(.top, -50)
+                // .border(.yellow)
+
+                // .scaledToFit()
+
+                // .frame(alignment: .leading)
+            }
+        }
+    }
+
+    // ----------------------------------------------------------------------------------------------------------
+    struct AppIconViewIAPS: View {
+        @Environment(\.colorScheme) var colorScheme
+        @StateObject var iconSettings = NamesOfIcon()
+        var body: some View {
+            ScrollView(.vertical) {
+                Section(
+                    /* header: Text(
+                         "This feature allows to change the AppIcon on FAX that you see on the Home Screen.\n\nIt dynamically fetches all AppIcons that are available in FreeAPS->Resources->Assets.xcassets\nYou can add your own icon easilly with right-click. Select iOS->New iOS App Icon. Add one .png image with size 1024x1024. Done"
+                     ).font(.caption)
+                         .foregroundColor(Color.secondary), */
+                    content: {
+                        ForEach(0 ..< $iconSettings.namesOfIcon.count) { i in
+                            Button(action: {
+                                if self.iconSettings.namesOfIcon[i] == "iAPS" {
+                                    UIApplication.shared.setAlternateIconName(nil)
+                                } else {
+                                    UIApplication.shared.setAlternateIconName(self.iconSettings.namesOfIcon[i])
+                                }
+
+                            })
+                                {
+                                    Label { /* Text(self.iconSettings.namesOfIcon[i] ?? "AppIcon") */ }
+                                    icon: {
+                                        Image(uiImage: UIImage(named: self.iconSettings.namesOfIcon[i] ?? "iAPS") ?? UIImage())
+                                            .resizable()
+                                            .scaledToFit()
+                                            .cornerRadius(10) // soften the edges of square image format
+                                        // .border(.red)
+
+                                        // .frame(width: 80, height: 80, alignment: .topLeading)
+                                    }
+                                }
+                        }.frame(width: 40, height: 45, alignment: .center)
+                        // .border(.green)
+                    }
+                )
+                .navigationTitle("Change App Icon")
+                .foregroundColor(colorScheme == .dark ? .white : .black)
+
+                .frame(alignment: .topLeading)
+                // .padding(.top, -50)
+                // .border(.yellow)
+
+                // .scaledToFit()
+
+                // .frame(alignment: .leading)
+            }
         }
     }
 
