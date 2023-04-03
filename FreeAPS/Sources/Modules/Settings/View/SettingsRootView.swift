@@ -30,6 +30,7 @@ extension Settings {
                     }
                     Text("Notifications").navigationLink(to: .notificationsConfig, from: self)
                     Text("Fat And Protein Conversion").navigationLink(to: .fpuConfig, from: self)
+                    Text("Profile Override").navigationLink(to: .overrideProfilesConfig, from: self)
                 }
 
                 Section(header: Text("Configuration")) {
@@ -40,6 +41,7 @@ extension Settings {
                     Text("Carb Ratios").navigationLink(to: .crEditor, from: self)
                     Text("Target Ranges").navigationLink(to: .targetsEditor, from: self)
                     Text("Autotune").navigationLink(to: .autotuneConfig, from: self)
+                    Text("AppIcon").navigationLink(to: .appIconConfig, from: self) // becksen
                 }
 
                 Section(header: Text("Developer")) {
